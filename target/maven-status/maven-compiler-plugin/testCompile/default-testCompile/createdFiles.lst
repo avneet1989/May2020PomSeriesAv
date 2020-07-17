@@ -1,0 +1,5 @@
+com\qa\hubspot\tests\MeetingsChatPageTest.class
+com\qa\hubspot\tests\ContactPageTest.class
+com\qa\hubspot\tests\HomePageTest.class
+com\qa\hubspot\tests\MeetingPageTest.class
+com\qa\hubspot\tests\LoginPageTest.class
