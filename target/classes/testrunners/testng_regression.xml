@@ -19,11 +19,11 @@
 		</classes>
 	</test>
 
-	<test name="HubSpot Feature Testing - home ">
+	<!--  <test name="HubSpot Feature Testing - home ">
 		<classes>
 			<class name="com.qa.hubspot.tests.HomePageTest" />
 		</classes>
-	</test> 
+	</test> -->
 
 	<!-- <test name="HubSpot Feature Testing - contacts"> 
 	<classes> 
