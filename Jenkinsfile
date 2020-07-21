@@ -80,7 +80,7 @@ pipeline {
 
         stage('firefox') {
           steps {
-            sh 'echo "run on firefox"'
+            bat 'echo "run on firefox"'
           }
         }
 
