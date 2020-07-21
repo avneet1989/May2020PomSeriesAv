@@ -11,7 +11,7 @@ pipeline {
 
         stage('chrome') {
           steps {
-            sh 'echo "run on chrome"'
+            bat 'echo "run on chrome"'
           }
         }
 
@@ -22,19 +22,19 @@ pipeline {
       parallel {
         stage('Run on QA') {
           steps {
-            sh 'echo "run on QA"'
+            bat 'echo "run on QA"'
           }
         }
 
         stage('chrome') {
           steps {
-            sh 'echo "run on chrome"'
+            bat 'echo "run on chrome"'
           }
         }
 
         stage('firefox') {
           steps {
-            sh 'echo "run on firefox"'
+            bat 'echo "run on firefox"'
           }
         }
 
@@ -45,19 +45,19 @@ pipeline {
       parallel {
         stage('Run on Stage') {
           steps {
-            sh 'echo "run on stage"'
+            bat 'echo "run on stage"'
           }
         }
 
         stage('chrome') {
           steps {
-            sh 'echo "run on chrome"'
+            bat 'echo "run on chrome"'
           }
         }
 
         stage('firefox') {
           steps {
-            sh 'echo "run on firefox"'
+            bat 'echo "run on firefox"'
           }
         }
 
@@ -68,13 +68,13 @@ pipeline {
       parallel {
         stage('Run on PROD') {
           steps {
-            sh 'Echo "run on prod"'
+            bat 'Echo "run on prod"'
           }
         }
 
         stage('chrome') {
           steps {
-            sh 'echo "run on chrome"'
+            bat 'echo "run on chrome"'
           }
         }
 
