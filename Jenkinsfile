@@ -72,15 +72,15 @@ pipeline {
           }
         }
 
-        stage('firefox') {
-          steps {
-            bat 'echo "run on firefox"'
-          }
-        }
-
         stage('chrome') {
           steps {
             bat 'echo "run on chrome"'
+          }
+        }
+
+        stage('firefox') {
+          steps {
+            bat 'echo "run on Firefox"'
           }
         }
 
