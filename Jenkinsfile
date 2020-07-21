@@ -31,10 +31,11 @@ pipeline {
             bat 'mvn test -Denv=qa'
           }
         }
+
       }
     }
 
-     stage('Build Stage') {
+    stage('Build Stage') {
       parallel {
         stage('Build Stage') {
           steps {
@@ -53,19 +54,20 @@ pipeline {
 
     stage('publish reports') {
       steps {
-        script{
+        script {
           allure([
             includeProperties: false,
             jdk: '',
             properties: [],
             reportBuildPolicy: 'ALWAYS',
             result: [[path: '/allure-results']]
-            ])
+          ])
         }
-          }
-        }
-  }
 
+      }
+    }
+
+  }
   tools {
     maven 'M3'
   }
