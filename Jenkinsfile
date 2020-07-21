@@ -80,7 +80,7 @@ pipeline {
 
         stage('chrome') {
           steps {
-            sh 'bat "run on chrome"'
+            bat "run on chrome"'
           }
         }
 
