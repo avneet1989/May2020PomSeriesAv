@@ -88,7 +88,7 @@ pipeline {
     }
 
   }
-  tools{
+  tools {
     maven 'M3'
   }
 }
