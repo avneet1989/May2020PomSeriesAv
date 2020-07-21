@@ -1,93 +1,71 @@
 pipeline {
   agent any
   stages {
-    stage('Run on DEV') {
+    stage('Build Dev') {
       parallel {
-        stage('Run on DEV') {
+        stage('Build Dev') {
           steps {
-            bat 'echo "run on QA"'
+            bat 'mvn clean install -DskipTests=true'
           }
         }
 
-        stage('chrome') {
+        stage('run test on dev') {
           steps {
-            bat 'echo "run on chrome"'
+            bat 'mvn test -Denv=dev'
           }
         }
 
       }
     }
 
-    stage('Run on QA') {
+    stage('Build QA') {
       parallel {
-        stage('Run on QA') {
+        stage('Build QA') {
           steps {
-            bat 'echo "run on QA"'
+            bat 'mvn clean install -DskipTests=true'
           }
         }
 
-        stage('chrome') {
+        stage('run test on qa') {
           steps {
-            bat 'echo "run on chrome"'
+            bat 'mvn test -Denv=qa'
+          }
+        }
+      }
+    }
+
+     stage('Build Stage') {
+      parallel {
+        stage('Build Stage') {
+          steps {
+            bat 'mvn clean install -DskipTests=true'
           }
         }
 
-        stage('firefox') {
+        stage('run test on stage') {
           steps {
-            bat 'echo "run on firefox"'
+            bat 'mvn test -Denv=stage'
           }
         }
 
       }
     }
 
-    stage('Run on Stage') {
-      parallel {
-        stage('Run on Stage') {
-          steps {
-            bat 'echo "run on stage"'
+    stage('publish reports') {
+      steps {
+        script{
+          allure([
+            includeProperties: false,
+            jdk: '',
+            properties: [],
+            reportBuildPolicy: 'ALWAYS',
+            result: [[path: '/allure-results']]
+            ])
+        }
           }
         }
-
-        stage('chrome') {
-          steps {
-            bat 'echo "run on chrome"'
-          }
-        }
-
-        stage('firefox') {
-          steps {
-            bat 'echo "run on firefox"'
-          }
-        }
-
-      }
-    }
-
-    stage('Run on PROD') {
-      parallel {
-        stage('Run on PROD') {
-          steps {
-            bat 'Echo "run on prod"'
-          }
-        }
-
-        stage('chrome') {
-          steps {
-            bat 'echo "run on chrome"'
-          }
-        }
-
-        stage('firefox') {
-          steps {
-            bat 'echo "run on Firefox"'
-          }
-        }
-
-      }
-    }
-
   }
+
   tools {
     maven 'M3'
   }
