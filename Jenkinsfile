@@ -61,12 +61,6 @@ pipeline {
           }
         }
 
-        stage('safari') {
-          steps {
-            sh 'echo "ruon on safari"'
-          }
-        }
-
       }
     }
 
