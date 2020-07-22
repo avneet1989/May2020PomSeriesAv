@@ -1,28 +1,74 @@
 pipeline {
   agent any
   stages {
+    stage('Build Dev') {
+      parallel {
+        stage('Build Dev') {
+          steps {
+            bat 'mvn clean install -DskipTests=true'
+          }
+        }
+
+        stage('run test on dev') {
+          steps {
+            bat 'mvn test -Denv=dev'
+          }
+        }
+
+      }
+    }
+
     stage('Build QA') {
       parallel {
         stage('Build QA') {
           steps {
-            sh 'echo "run on QA"'
+            bat 'mvn clean install -DskipTests=true'
           }
         }
 
-        stage('chrome') {
+        stage('run test on qa') {
           steps {
-            sh 'echo "run on chrome"'
+            bat 'mvn test -Denv=qa'
           }
         }
 
       }
     }
 
-    stage('End') {
-      steps {
-        sh 'echo "The End"'
+    stage('Build Stage') {
+      parallel {
+        stage('Build Stage') {
+          steps {
+            bat 'mvn clean install -DskipTests=true'
+          }
+        }
+
+        stage('run test on stage') {
+          steps {
+            bat 'mvn test -Denv=stage'
+          }
+        }
+
       }
     }
 
+    stage('publish reports') {
+      steps {
+        script {
+          allure([
+            includeProperties: false,
+            jdk: '',
+            properties: [],
+            reportBuildPolicy: 'ALWAYS',
+            results: [[path: '/allure-results']]
+          ])
+        }
+
+      }
+    }
+
+  }
+  tools {
+    maven 'M3'
   }
 }
