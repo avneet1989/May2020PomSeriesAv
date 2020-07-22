@@ -1,6 +1,6 @@
-###############################
-## java
-###############################
+##############################
+## Java
+##############################
 .mtj.tmp/
 *.class
 *.jar
@@ -9,26 +9,26 @@
 *.nar
 hs_err_pid*
 
-################################
+##############################
 ## Maven
-################################
+##############################
 allure-results/
 target/
 screenshots/
 pom.xml.tag
-pom.xml.releasrBackup
+pom.xml.releaseBackup
 pom.xml.versionsBackup
-pm.xml.next
+pom.xml.next
 pom.xml.bak
 release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
-.mvn/timig.properties
+.mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
 
-#################################
+##############################
 ## Eclipse
-#################################
+##############################
 .settings/
 bin/
 tmp/
@@ -43,7 +43,7 @@ local.properties
 .loadpath
 .factorypath
 
-#################################
+##############################
 ## OS X
-#################################
+##############################
 .DS_Store
