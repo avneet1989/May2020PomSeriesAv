@@ -6,7 +6,11 @@
 	<listeners>
 	 <listener class-name="com.qa.hubspot.testlisteners.TestAllureListener" />
 	 <!--   	 <listener class-name="com.qa.hubspot.testlisteners.ExtentReportListener" /> -->
+<<<<<<< HEAD
   		<!--  <listener class-name="com.qa.hubspot.testlisteners.pdfListener" /> -->	
+=======
+ 	<listener class-name="com.qa.hubspot.testlisteners.pdfListener" />	
+>>>>>>> a9086a5a3ae78eb194b6e84216b2b4e99b728c96
 		<!--  <listener class-name="com.qa.hubspot.testlisteners.TesultsListener" />-->
 
  </listeners>
