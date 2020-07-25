@@ -1,20 +1,12 @@
 package com.qa.hubspot.tests;
 
-import java.util.Properties;
-
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import com.qa.hubspot.base.BasePage;
 import com.qa.hubspot.base.BaseTest;
 import com.qa.hubspot.pages.HomePage;
-import com.qa.hubspot.pages.LoginPage;
 import com.qa.hubspot.utils.Constants;
 
 import io.qameta.allure.Description;
@@ -37,8 +29,8 @@ public class HomePageTest extends BaseTest{
 //		LoginPage loginPage;
 		HomePage homePage;
 		
-		//@BeforeTest
-		@BeforeClass
+		@BeforeTest
+		//@BeforeClass
 		public void homePageSetUp() {
 //			basePage= new BasePage();
 //			prop= basePage.init_prop();
